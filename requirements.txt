@@ -1,0 +1,12 @@
+# Configuración básica
+Django==3.2.7
+djangorestframework==3.12.4
+# Cors
+django-cors-headers==3.13.0
+# Conexión con base de datos
+django-mssql-backend==2.8.1
+# Test
+pytest-django==4.5.2
+requests==2.28.1
+# JWT
+PyJWT==2.4.0
