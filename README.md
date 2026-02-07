@@ -2,7 +2,7 @@
 Desafio Talana
 
 Descripción
-TalaTrivia es una API REST desarrollada en Django + Django REST Framework que permite:
+<br>TalaTrivia es una API REST desarrollada en Django + Django REST Framework que permite:
 - Crear usuarios
 - Crear preguntas
 - Crear trivias
@@ -26,24 +26,26 @@ Arquitectura
 - TriviaPregunta
 - Respuestas
 
-Autenticación (Se utiliza JWT personalizado, el que se solicita en proyecto de autenticación aparte, para enfoque en trivia y apuntar a microservios)
-El token incluye:
+Autenticación
+<br>(Se utiliza JWT personalizado, el que se solicita en proyecto de autenticación aparte, para enfoque en trivia y apuntar a microservios)
+<br>El token incluye:
 - id_usuario
 - es_administrador
 
 Instalación
-git clone <repo>
-cd TalaTrivia
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+1) git clone <repo>
+2) cd TalaTrivia
+3) python -m venv venv
+4) source venv/bin/activate
+5) pip install -r requirements.txt
+6) python manage.py migrate
+7) python manage.py runserver
 
 Endpoints principales
-Crear usuario
-POST /usuarios/crear_usuario
-    Ejemplo payload
+- Crear usuario
+<br>POST /usuarios/crear_usuario
+    <br>Ejemplo payload
+    ```json
     {
         "nombre": "Matias",
         "apellidos": "Avila Bustamante",
@@ -51,13 +53,16 @@ POST /usuarios/crear_usuario
         "login": "mavila",
         "administrador": True
     }
+    ```
 
-Listar usuarios por concepto
-GET /usuarios/listar_usuario/{concepto}
+- Listar usuarios por concepto
+<br>GET /usuarios/listar_usuario/{concepto}
+<br>Permite buscar por nombre, apellido o correo electrónico.
 
-Crear trivia
-POST /trivias/crear_trivias
-    Ejemplo payload
+- Crear trivia
+<br>POST /trivias/crear_trivias
+    <br>Ejemplo payload
+    ```json
     {
         "nombre": "Trivia 1",
         "descripcion": "Primera trivia",
@@ -71,19 +76,21 @@ POST /trivias/crear_trivias
             5
         ]
     }
+    ```
 
-Listar trivias por concepto
-GET /trivias/listar_trivias/{concepto}
+- Listar trivias por concepto
+<br>GET /trivias/listar_trivias/{concepto}
 
-Listar trivias asociadas a un usuario
-GET /trivias/listar_trivias_usuario
+- Listar trivias asociadas a un usuario
+<br>GET /trivias/listar_trivias_usuario
 
-Listar ranking por trivia
-GET /trivias/ranking_trivia/{id_trivia}
+- Listar ranking por trivia
+<br>GET /trivias/ranking_trivia/{id_trivia}
 
-Responder Trivia
-POST /respuestas/responder_trivia/{id_trivia}
-    Ejemplo payload
+- Responder Trivia
+<br>POST /respuestas/responder_trivia/{id_trivia}
+    <br>Ejemplo payload
+    ```json
     {
         "respuestas": [
             { "id_pregunta": 1, "opcion_seleccionada": 2 },
@@ -91,10 +98,12 @@ POST /respuestas/responder_trivia/{id_trivia}
             { "id_pregunta": 3, "opcion_seleccionada": 6 },
         ]
     }
+    ```
 
-Crear pregunta
-POST /preguntas/crear_pregunta
-    Ejemplo payload
+- Crear pregunta
+<br>POST /preguntas/crear_pregunta
+    <br>Ejemplo payload
+    ```json
     {
         "texto": "¿Quién pintó la Mona Lisa?",
         "dificultad": 2,
@@ -106,6 +115,9 @@ POST /preguntas/crear_pregunta
         ],
         "opcion_correcta": 1
     }
+   ```
+<br>Nota:
+<br>La opcion_correcta corresponde al índice dentro del arreglo opciones.
 
-Listar preguntas por concepto
-GET /preguntas/listar_preguntas/{concepto}
+- Listar preguntas por concepto
+<br>GET /preguntas/listar_preguntas/{concepto}
